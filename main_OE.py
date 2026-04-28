@@ -94,8 +94,8 @@ for case in cases:
         
             print(f"{BestCostIt[it]*100:.2f}%  at iteration:  {it+1}")
             # frames = plot2Ddeployment(pop, rs, rc, BestCostIt[it], it, Obstacle_Area, Covered_Area, frames)
-        folder_name = f'data/case_{case}/SOMEA'
-        file_name = f'SOMEA_{Trial}.mat'
+        folder_name = f'data/case_{case}/OE'
+        file_name = f'OE_{Trial}.mat'
         save_mat(folder_name, file_name, popIt, BestCostIt, Obstacle_Area)
     
 # %%--- xuất file GIF ---

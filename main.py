@@ -16,7 +16,7 @@ from utils.Workspace_functions import save_mat
 cases = ["image0", "image1", "image2", "image3", "image4"]
 for case in cases:
     
-    for Trial in range(21,50):
+    for Trial in range(1,50):
         
         frames = []   # lưu toàn bộ hình để ghép GIF
         
