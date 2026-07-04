@@ -6,7 +6,7 @@ except:
 # %%
 import numpy as np
 import networkx as nx
-from utils.genarea import genarea
+from utils.genarea_large import genarea
 from utils.graph_functions import Graph, Connectivity_graph
 from utils.Cov_Func import Cov_Func
 from utils.plot_functions import plot2Ddeployment
@@ -31,10 +31,10 @@ for case in cases:
         # Node info
         MaxIt = 500
         a = 1
-        N = 50
+        N = 200
         rc = 16
         rs = 8 * np.ones(N)
-        sink = [5, 5]
+        sink = [20, 20]
         trap_thresh = 10
         float_thresh = 100
         trap2float = float_thresh/10
@@ -42,7 +42,7 @@ for case in cases:
         safe_d = 1
         
         # %% Init pop
-        initpop = np.random.uniform(max(sink[0]-rc/2, 2), sink[1]+rc/2, (N, 2))
+        initpop = np.random.uniform(max(sink[0]-rc/2, 5), sink[1]+rc/2, (N, 2))
         initpop[0, :] = sink
         pop = initpop.copy()
         del initpop
@@ -177,9 +177,9 @@ for case in cases:
             frames, _ = plot2Ddeployment(pop, rs, rc, BestCostIt[it], it, Obstacle_Area, Covered_Area, frames)
             
         total_time = (time.time() - start_loop)/60
-        folder_name = f'data/case_{case}/SOMEA'
-        file_name = f'SOMEA_{Trial}.mat'
-        save_mat(folder_name, file_name, popIt, BestCostIt, Obstacle_Area, total_time)
+        # folder_name = f'data/case_{case}/SOMEA'
+        # file_name = f'SOMEA_{Trial}.mat'
+        # save_mat(folder_name, file_name, popIt, BestCostIt, Obstacle_Area, total_time)
         
     del al_pop, al_trap_matrix, d, decision, fitness_ratio, i, k, K, Layers, N_layers, neibor_cov, neighbor_G, neighbor_pop, new_cov, node_cov, node_type, nodesInLayers, obs, obs_check1
     del old_cov, orderInLayers, phi, vt, obs_col, obs_row, G

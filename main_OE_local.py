@@ -10,6 +10,7 @@ from utils.graph_functions import Graph, Connectivity_graph
 from utils.Cov_Func import Cov_Func
 from utils.plot_functions import plot2Ddeployment
 from utils.Workspace_functions import save_mat
+import time
 
 # %%
 cases = ["image0", "image1", "image2", "image3", "image4"]
@@ -42,7 +43,9 @@ for case in cases:
         popIt = np.zeros((MaxIt, 2*N))
         popIt[0, :] = pop.flatten()
         C = np.zeros(N)
+        BestCostIt[0], Covered_Area = Cov_Func(pop, rs, Obstacle_Area, Covered_Area)
         
+        start_loop = time.time()
         # %% Main
         for it in range(1, MaxIt):
             for i in range(1,N):
@@ -96,9 +99,10 @@ for case in cases:
         
             print(f"{BestCostIt[it]*100:.2f}%  at iteration:  {it+1}")
             # frames = plot2Ddeployment(pop, rs, rc, BestCostIt[it], it, Obstacle_Area, Covered_Area, frames)
+        total_time = (time.time() - start_loop)/60
         folder_name = f'data/case_{case}/OE_local'
         file_name = f'OE_local_{Trial}.mat'
-        save_mat(folder_name, file_name, popIt, BestCostIt, Obstacle_Area)
+        save_mat(folder_name, file_name, popIt, BestCostIt, Obstacle_Area, total_time)
     
 # %%--- xuất file GIF ---
 # frames[0].save(

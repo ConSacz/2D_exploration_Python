@@ -5,12 +5,13 @@ import pickle
 import numpy as np
 
 #%%
-def save_mat(folder_name, file_name, popIt, BestCostIt, Obstacle_Area):
+def save_mat(folder_name, file_name, popIt, BestCostIt, Obstacle_Area, total_time):
     os.makedirs(folder_name, exist_ok=True)
     savemat(os.path.join(folder_name, file_name), {
         'popIt': popIt,
         'BestCostIt': BestCostIt,
-        'Obstacle_Area': Obstacle_Area
+        'Obstacle_Area': Obstacle_Area,
+        'total_time': total_time
     })
     
 #%%
