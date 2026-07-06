@@ -14,7 +14,7 @@ from utils.Workspace_functions import save_mat
 import time
 
 # %%
-cases = ["image0", "image1", "image2", "image3", "image4"]
+cases = ["image4"]
 # cases = ["image3"]
 for case in cases:
     
@@ -177,9 +177,9 @@ for case in cases:
             frames, _ = plot2Ddeployment(pop, rs, rc, BestCostIt[it], it, Obstacle_Area, Covered_Area, frames)
             
         total_time = (time.time() - start_loop)/60
-        # folder_name = f'data/case_{case}/SOMEA'
-        # file_name = f'SOMEA_{Trial}.mat'
-        # save_mat(folder_name, file_name, popIt, BestCostIt, Obstacle_Area, total_time)
+        folder_name = f'data/case_{case}/SOMEA'
+        file_name = f'SOMEA_{Trial}.mat'
+        save_mat(folder_name, file_name, popIt, BestCostIt, Obstacle_Area, total_time)
         
     del al_pop, al_trap_matrix, d, decision, fitness_ratio, i, k, K, Layers, N_layers, neibor_cov, neighbor_G, neighbor_pop, new_cov, node_cov, node_type, nodesInLayers, obs, obs_check1
     del old_cov, orderInLayers, phi, vt, obs_col, obs_row, G

@@ -13,7 +13,7 @@ from utils.Workspace_functions import save_mat
 import time
 
 # %%
-cases = ["image0", "image1", "image2", "image3", "image4"]
+cases = ["image0", "image1", "image2", "image3"]
 for case in cases:
     
     for Trial in range(0,50):
